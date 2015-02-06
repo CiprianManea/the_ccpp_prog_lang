@@ -1,0 +1,47 @@
+Ch1 A Tutorial Intro
+====================
+Created miercuri 26 noiembrie 2014
+
+Hello, world
+
+Choosing the C compiller version: 
+* $ gcc -std=c89
+* $ gcc -std=c99
+* $ gcc -std=c11
+
+A C program consists of functions and variables.
+	A function contains statements.
+	Variables store values.
+	
+Primitives data types in C:
+* char
+* short
+* int
+* long
+* float
+* double
+
+Assignment statement: lower = 12;
+The body of a while can be one or multiple statements.
+Pick a style that suits you, then use it consistently.
+There is no IN/OUT builtin C. Use stdio library for this.
+
+%d		printf as decimal integer
+%6d		print as decimal integer, at least 6 characters wide
+%f			print as floating point
+%6f		print as floating point, at least 6 characters wide
+%.2f		print as floating point, 2 characters after decimal point
+%6.2f		print as floating point, at least 6 wide and 2 after decimal p
+%o		octal
+%x			hexadecimal
+%c			character
+%s			string
+%%		to print %
+
+Bad practice to bury "magic numbers"!
+Call by value or by reference.
+Call by value is an asset, however, not a liability.
+'\0' → the null character in a string array. This char marks the end of the string array.
+Local variables are called automatic variables.
+Definition → refers to the place where the variable is created or assigned storage.
+Declaration → refers to places where the nature of the variable is stated but no storage is allocated.
