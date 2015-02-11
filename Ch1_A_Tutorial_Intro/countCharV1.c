@@ -1,0 +1,19 @@
+/*
+ * Author   : Dennis M. Ritchie
+ * Date     : 10-02-2015
+ * ----------------------------
+ * Count characters in input; 1st version.
+ */
+#include <stdio.h>
+
+int main()
+{
+    long nc;
+
+    nc = 0;
+    while (getchar() != EOF)
+        ++nc;
+    printf("%ld\n", nc);
+
+    return 0;
+}
