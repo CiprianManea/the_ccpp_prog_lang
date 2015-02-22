@@ -1,0 +1,43 @@
+Ch2 Types, Operators and Expr
+=============================
+Created duminică 22 februarie 2015
+
+Variables and Constants.
+
+Const on objects prevents them from being changed.
+
+Restrictions to the variable names:
+* first char must be a letter
+* "_" counts as a letter
+	* library routines use "_" for their begining.
+* Case sensitive
+
+Data Types and Size:
+* char
+* int 
+* float
+* double
+* short
+* long: 'l or L'
+* Symbolic constants in:
+	* <limits.h> & <float.h>
+* octal: 0123
+* hexa: 0x123 or 0X123
+
+Escape sequences:
+* \a	alert (bell)
+* \b	backspace
+* \f		formfeed
+* \n	newline
+* \r		carrage return
+* \t		horizontal tab
+* \v		vertical tab
+* \\		backslash
+* \?		question mark
+* \'		single quote
+* \"		double quote
+* \000	octal number
+* \xhh	hexadecimal number
+
+enum boolean {NO, YES};
+	* the first name in an enum has value 0, the next 1, and so on.
