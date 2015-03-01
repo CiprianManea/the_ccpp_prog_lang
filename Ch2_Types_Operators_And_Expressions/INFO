@@ -41,3 +41,60 @@ Escape sequences:
 
 enum boolean {NO, YES};
 	* the first name in an enum has value 0, the next 1, and so on.
+
+Declarations
+* all var must be declared before use.
+* declared vs defined vs initialized
+* declaration and initialization:	int i = 0;
+* external and static var are initialized to zero by default
+* Automatic variables → local variables.
+* const applied to a var → the value of that var will not change
+	* int strlen(const char[]);
+
+Arithmetic Operators:
+* +, -, *, /, %
+* if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+	printf("%d is a leap year\n", year);
+   else 
+	printf("%d is not a leap year\n", year);
+* unary operators: +, -
+
+Relational and Logical Operators
+* >	>=	<	<=
+* ==	!=
+* ||	&&
+
+Type Conversions:
+* atoi()
+* <ctype.h>
+	* tolower(c);
+	* isdigit(c);
+* cast
+	* (type-name) expression
+
+Increment and Decrement Operators
+* prefix → ++n		(increments n before its value is used)
+* postfix → n++	(increments n after its value has been used.)
+* Illigal → (i + j)++
+
+Bitwise Operators
+* can be applied only to integral operands
+* &	→ bitwise AND
+* |	→ bitwise inclusive OR  
+* ^	→ bitwise exclusive OR
+* <<	→ left shift
+* >> 	→ right shift
+	* "arithmetic shift"
+	* "logical shift"
+* ~	→ one's complement (unary)
+
+Assignment Operators and Expressions
+* i +=2;
+* expr1 op= expr2
+	* expr1 = (expr1) op (expr2)
+
+Conditional Expressions
+* "?:" → ternary operator
+* expr1 ? expr2 : expr3
+	* TRUE → expr2
+	* FALSE → expr3
