@@ -2,4 +2,71 @@ Ch3 Control Flow
 ================
 Created duminică 01 martie 2015
 
+Statements and Blocks:
+* x = 0;
+* i++;
+* printf(...);
+* ";"  → is a statement terminator
 
+If-Else
+	if (expression)
+		statement1
+	else
+		statement2
+		
+Else-If
+	if (expression)
+		statement
+	else if (expression)
+		statement
+	else if (expression)
+		statement
+	else
+		statement
+
+Switch
+	switch (expression) {
+		case const-expr:	statements
+		case const-expr:	statements
+		default:	statements
+	}
+	
+Loops — While and For
+	while (expression)
+		statement
+	
+	for (expr1; expr2; expr3)
+		statement
+		
+	 expr1;
+	while (expr2) {
+		statement
+		expr3;
+	}
+	
+Loops — Do-while
+	do
+		statement
+	while (expression);
+	
+Break and Continue
+* break → causes the innermost enclosing loop or switch to be exited immediately
+	break;
+* continue → causes the next iteration of the enclosing for, while or do loop to begin.
+	continue;
+	
+Goto and Labels
+* in practice, it is almost always easy to write code without it.
+* infinitely-abusable goto statement
+* code that relies on goto statements is harder to understand and to maintain
+* used for beaking out of two or more nested loop at once.
+	for (...)
+		for (...) {
+			...
+			if (disaster)
+				goto error;
+		}
+	...
+	
+	errror:
+		clean up the mess
