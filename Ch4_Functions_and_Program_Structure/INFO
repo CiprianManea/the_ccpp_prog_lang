@@ -1,0 +1,11 @@
+Ch4 Functions and Program Structure
+===================================
+Created Sunday 08 March 2015
+
+Basics of Functions
+* the chance of unwanted interactions is minimized
+	return-type function-name (argument declarations)
+	{
+		declarations and statements
+	}
+
