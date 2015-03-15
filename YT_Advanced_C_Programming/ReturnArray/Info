@@ -1,0 +1,124 @@
+Date: 14-03-2015
+
+Returning an Array in C
+
+ 1. Examples of what you should not do!
+
+char *return_string() {
+	char buffer[] = "This is a local char buffer";
+	return buffer;
+}
+
+int *return_int_arr() {
+	int int_arr[] = {9, 1, 3};
+	return int_arr;
+}
+
+int main() {
+	int a[10];
+	a = return_int_arr();
+	return 0;
+}
+	i. Return an Array from a function
+	ii. Return a local variable
+	iii. lvalue, rvalue
+
+ 2. Six solutions of returning an array from a function.
+
+	I. Return a string literal
+char *funct() {
+	return "Returned string";
+}
+		a. Simple solution
+		b. Only works for strings
+		c. Can't be used if you need to calculate the string contents
+		d. String literals can be stored in read only memory (caller must not overwrite)
+
+	II. Use globally declared array
+char global_arr[100];
+char *func() {
+	...
+	global_arr[i] = ...;
+	...
+	return global_arr;
+}
+		a. Contents can be calculated
+		b. Anyone can modify the global array
+		c. Overwritten on next call to the function (called needs to copy return value)
+		d. Large buffers can be wasteful
+
+	III. Use a static array
+char *func() {
+	static char static_arr[100];
+	...
+	return static_arr;
+}
+		a. Only those with pointer will be able to modify static array (not anyone)
+		b. Overwritten on next call to the function (caller needs to copy return value)
+		c. Large buffer can be wasteful
+
+	IV. Explicitly allocate memory to hold the return value
+char *func() {
+	char *buffer = malloc(100);		/* Memory will be allocated on the HEAP */
+	...
+	return buffer;
+}
+		a. Every invocation creates a new buffer (not overwritten on subsequent calls)
+		b. Memory management issue:
+			i. Memory freed whiel still in use
+			ii. Memory leaks (no longer in use, but still held)
+
+	V. Caller allocates memory to hold return value
+void func(char *result, int size) {
+	...
+	strncpy(result, "Returned string", size);
+}
+
+int main(void) {
+	char *buffer = malloc(size);
+	func(buffer, size);
+	...
+	free(buffer);
+}
+		a. For safety, provide a count of the size of the buffer (like fgets in stdlib)
+		b. Simplified memory management (free and malloc written by the same agent)
+		c. Return from the function can be used for status code
+
+	VI. Wrap your array in a struct and return it
+#define SIZE 100
+
+struct Data {
+	char buffer[DATA];
+};
+
+struct Data func() {
+	struct Data d;
+	strncpy(d.buffer, "Returned string", SIZE);
+	return d;
+}
+		a. No memory management
+		b. Fixed-size array only
+		c. Costly for large arrays
+
+
+
+Obs:
+	1. Dynamic memory is allocated on the HEAP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+Static Keyword in C
+
+Meanings:
+1. Inside a function: retains its value between calls (lifetime)
+	i. Static local variables
+		a. Variable will be stored in the DATA segment; instead of the STACK
+
+2. At the function level: visible only in the file (scope)
+	i.	Static global variables
+	ii.	Static functions 

@@ -1,0 +1,81 @@
+Structs and Union Syntax
+
+Struct:
+	a. Collection of variables of different data types
+	b. Used to build & conveniently handle complex datatypes
+
+Syntax:
+	Defining a struct type:
+	a. Data items to be grouped: data declarations
+	b. Grouping in C: use braces {}
+	c. Keyword struct in front to distinguish it from a block struct {items ...}
+
+	Declaring variables of this struct type:
+	a. Add variable names to struct definition
+		OR
+	b. Write an optional "structure tag" after the keyword struct, and use struct
+	   "structure tag" as a shortand for struct {} in future declarations
+
+		struct optional_tag {
+			type identifier;
+			type identifier;
+			...
+		} optional_variable_definitions;
+
+	Using typedef
+	a. Use a typedef statement to define and re-name the new struct type:
+
+		typedef struct {
+			type identifier;
+			type identifier;
+			---
+		} new_struct_t;
+
+	b. Then use the new struct type name to declare variables
+		new_struct_t identifier;
+
+
+Unions:
+	a. Collection of variables of different data types (just like a struct)
+	b. Crucial difference: one field stored at a time (the largest one)
+	c. Usage:
+		i. save space (mutually exclusive data items)
+			struct conditions {
+				float temperature;
+				union {
+					float wind_chill;
+					float head_index;
+				} feels_like;
+			}
+
+		ii. access individual bytes/bits of lager types (embedded programming)
+			union {
+				/* one 32-bit value */
+				int whole;
+				/* four 8-bit bytes */
+				struct {char c0, c1, c2, c3;} bytes;
+			} value;
+
+		iii. variable format record (pseudo-polymorphism)
+			enum Type {INTS, FLOATS, DOUBLE};
+			struct S {
+				Type s_type;
+				union {
+					int s_ints[2];
+					float s_floats[2];
+					double s_double;
+				};
+			};
+
+
+Syntax:
+	Unions have exactly the same general appearance as structs, but with the keyword struct
+	replaced by union:
+
+	union optional_tag {
+		type identifier;
+		type identifier;
+		...
+	} optional_variable_definitions;
+
+union tag identifier;
