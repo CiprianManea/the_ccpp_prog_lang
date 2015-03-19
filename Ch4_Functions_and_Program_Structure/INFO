@@ -8,4 +8,68 @@ Basics of Functions
 	{
 		declarations and statements
 	}
+* if the return-type is ommited; int is assumed
+* gcc main.c  getline.c strindex.c -o grep
+* If there is an error in only one file of those 3 above: ex main.c
+	* gcc main.c getline.o strindex.o -o grep
 
+Functions Returning Non-integers
+
+Declarations must match Definitions
+
+External Variables
+* C does not allow functions to be defined inside other functions.
+
+Scope Rules:
+* automatic variables
+* Variable
+	* Declaration → announces the properties of a variable
+	* extern int sp;
+	* extern double val[];
+	* Definition → also causes storage to be set aside
+		* External vars
+			* int sp;
+			* double val[MAXVAL]
+
+Static Variables:
+* static int bufp = 0;
+	* bufp can be accessed only in the file that was defined
+* Static for automatic vars
+	* remain in existence rather than coming and going each time the function is activated
+	* provide private permanent storage within a single function
+
+Register Variables:
+* A register declaration advises the compiler that the variable in question will be heavily used. The idea is that register variables are to be placed in machine registers, which may result in smaller and faster programs.
+* Can only be applied to automatic variables and to the formal param of a function.
+* Not possible to take the address of a register variable.
+* register int x;
+
+Block Structure:
+
+Initialization:
+* external and static variables are guaranteed to be initialized to zero
+* for external and static variables, the initializer must be a constant expression.
+
+Recursion:
+* Recursion may provide no saving in storage, since somewhere a stack of the values being processed must be maintained. Nor will it be faster. But recursive code is mode compact, and often much easier to write and understand than the non-recursive equivalent. Recursion is especially convenient for recursively defined data structurres like trees.
+
+The C Preprocessor:
+* Conceptulally is a separate first step in compilation
+* #include <>  OR  #include ""
+* #define name replacement_text
+	* A definition may use a previous definition
+	* #define forever for(;;)
+	* #define max(A, B) ((A) > (B) ? (A) : (B))
+* #undef getchar
+* #define dprint(expr) printf(#expr " = %g\n", expr)
+	* When is called like this:  dprint(x/y);
+	* The macro is expanded into: printf("x/y" " = %g\n", x/ y);
+	* And the strings are concatenated: printf("x/y  = %g\n", x/ y);
+* #define paste(front, back) front ## back
+	* So:  paste(name, 1)   creates the token   'name1'
+* #if  #endif  #elif  #else
+* #ifdef   #ifndef
+	* #ifndef HDR
+	  #define HDR
+	/* contents of hrd.h go here */
+	#endif
