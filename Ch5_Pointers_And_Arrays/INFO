@@ -1,0 +1,71 @@
+Ch5 Pointers and Arrays
+=======================
+Created Thursday 19 March 2015
+
+A pointer is a variable that containes the address of a variable.
+With discipline, however, pointers can also be used to achieve clarity and simplicity.
+
+Pointers and Addressses
+* the unary operator & gives the address of an object
+	* p = &c
+	* p   points to   c
+* the unary operator *  is the indirection or dereferencing operator
+	* when applied to a pointer; it accesses the object the pointer points to.
+	* int *ip;	(is a mnemonic) 
+	* *ip = *ip + 10;
+	* ++*ip  ;  (*ip)++  → Increments ip by 1
+		* Unary  operator, like * and ++ are associate right to left
+
+Pointers and Function Arguments
+* swap (&a, &b);
+* void swap(int *px, int *py)
+  {
+	int temp;
+	
+	temp = *px;
+	*px = *py;
+	*py = temp;
+  }
+
+Pointers and Arrays
+* There is a stron relationship between pointers and arrays
+* int a[10]; int *pa; pa = &a[0];
+* *(pa + 1)  → content of a[1]
+* We can write:  pa = a;
+* a[i] == *(a + i)
+* &a[i] == a + i
+* pa[i] == *(pa + i)
+* Array name is not a variable:
+	* Legal expression: pa = a; pa++;
+	* Illegal expression: a = pa; a++;
+
+Address Arithmetic
+
+Character Pointers and Functions
+* For the version 3 of strcpy; although may seem cryptic at first sight, the notational convenience is considerable, and the idiom should be mastered.
+* We can see prefix and postfix pointers operations:
+	* *p++ ; *p--
+	* *++p; *--p	(this one is less frequent)
+
+Pointer Arrays; Pointers to Pointers
+
+Multi-dimensional Arrays
+* f(int daytab[2][3]) {...}
+* f(int daytab[][3]) {...}
+* f(int (*daytab)[3]) {...}
+
+Initialization of Pointer Arrays.
+
+Pointers vs. Multi-dimensional Arrays
+* int a[10][20];
+* int *b[10];
+* char *name[] = {"Illegal month", "Jan",  "Feb", "Mar"};
+* char aname[][15] = {"Illegal month", "Jan",  "Feb", "Mar"};
+
+Command-line Arguments
+* argc → argument count
+* argv → argument vector
+* argv[argc] == NULL
+
+Todo!!!!!
+* go back and do the last two sub-chapters from pointers
